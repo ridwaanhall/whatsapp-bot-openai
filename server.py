@@ -27,12 +27,11 @@ def generate_answer(question):
   return answer
 
 
-# Define a route to handle incoming requests
 @app.route('/chatgpt', methods=['POST'])
 def chatgpt():
   incoming_que = request.values.get('Body', '').lower()
   print("Question: ", incoming_que)
-  # Generate the answer using GPT-3
+  
   answer = generate_answer(incoming_que)
   print("BOT Answer: ", answer)
   bot_resp = MessagingResponse()
